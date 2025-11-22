@@ -235,7 +235,9 @@ rules:
       - statefulsets
       - cronjobs
       - secrets
-      - 
+      - limitranges
+      - poddisruptionbudget 
+
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
 kubectl create -f role.yml -n webapps
