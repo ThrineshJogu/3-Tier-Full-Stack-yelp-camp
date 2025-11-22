@@ -17,17 +17,11 @@ Jenkinsfile: (for Docker container)
 pipeline {
     agent any
     environment {
-
         SCANNER_HOME = tool 'mysonar'
-
         CLOUDINARY_CLOUD_NAME = credentials('CLOUDINARY_CLOUD_NAME')
-
         CLOUDINARY_KEY = credentials('CLOUDINARY_KEY')
-
         CLOUDINARY_SECRET = credentials('CLOUDINARY_SECRET')
-
         MAPBOX_TOKEN = credentials('MAPBOX_TOKEN')
-
         DB_URL = credentials('DB_URL')
     }
     stages {
@@ -42,9 +36,7 @@ pipeline {
                 withSonarQubeEnv('mysonar') {
                     sh """
                         ${SCANNER_HOME}/bin/sonar-scanner \
-
                         -Dsonar.projectKey=CampProject \
-
                         -Dsonar.projectName=CampProject
                     """
                 }
