@@ -232,22 +232,23 @@ subjects:
 kubectl create -f role-binding.yml -n webapps
 
 vi secret.yml
----
 apiVersion: v1
 kind: Secret
 metadata:
-  name: yelp-camp-secrets
+  name: yelp-camp-secrets
 type: Opaque
 data:
-  CLOUDINARY_CLOUD_NAME: ZHpuanRxcG1t 
-  CLOUDINARY_KEY: MTY2NDYzNTExNTQyNDYyCg==
-  CLOUDINARY_SECRET: SmFzX013blhYUTF2ZFphelFqRWxuV2RqSXZFCg==
-  MAPBOX_TOKEN: cGsuZXlKMUlqb2lZVzFwZEhOcGJtZG9jems0SWl3aVlTSTZJbU50T0RKbWFHTXdNREIwZG13eWFtOWtZWEUxTVRBek9Hc2lmUS5MTXc2ZTVIOHZvTFVUc3d0YUduWjlBCg==
-  DB_URL: bW9uZ29kYitzcnY6Ly9hbWl0c2luZ2hzMjc5ODpDSFRVRHdEQUlsNm45MW5IQGFtaXQteWVscC42cXhtdy5tb25nb2RiLm5ldC8/cmV0cnlXcml0ZXM9dHJ1ZSZ3PW1ham9yaXR5JmFwcE5hbWU9QW1pdC1ZZWxwCg==
+  CLOUDINARY_CLOUD_NAME: ZGV6azNyY2py
+  CLOUDINARY_KEY: Mjg3NDI5MjYzODM1NzI5
+  CLOUDINARY_SECRET: cTNmbzlTZ3IwLVZrdXNSbXZjYTBqalVWeTRj
+  MAPBOX_TOKEN: cGsuZXlKMUlqb2lkR2h5YVc1bGMyZ2lMQ0poSWpvaVkyMXBZamhvYzNwc01XSTFhakp0YjNBeFlUWTFkbUUzYnlKOS5hcGVsbmdMX0tVOTVNak1GVXg1REZB
+  DB_URL: bW9uZ29kYitzcnY6Ly9qb2d1dGhyaW5lc2gxMjNfZGJfdXNlcjpQeXVrOUxwY21nOWJhSkxhQGNsdXN0ZXIwLnU0bDVxZ2wubW9uZ29kYi5uZXQvP2FwcE5hbWU9Q2x1c3RlcjA=
 
 kubectl create -f secret.yml -n webapps
 # to get secret token
-echo -n "token" | base64
+echo -n "dezks3rcjr" | base64
+echo ZGV6azNyY2py | base64 --decode
+
 kubectl describe secret mysecret -n webapps
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
