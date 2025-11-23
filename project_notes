@@ -17,12 +17,11 @@ Jenkinsfile: (for Docker container)
 pipeline {
     agent any
     environment {
-        SCANNER_HOME = tool 'mysonar'
-        CLOUDINARY_CLOUD_NAME = credentials('CLOUDINARY_CLOUD_NAME')
-        CLOUDINARY_KEY = credentials('CLOUDINARY_KEY')
-        CLOUDINARY_SECRET = credentials('CLOUDINARY_SECRET')
-        MAPBOX_TOKEN = credentials('MAPBOX_TOKEN')
-        DB_URL = credentials('DB_URL')
+        cloud_name = credentials('CLOUDINARY_CLOUD_NAME')
+        cloud_key = credentials('CLOUDINARY_KEY')
+        cloud_secret = credentials('CLOUDINARY_SECRET')
+        map_token = credentials('MAPBOX_TOKEN')
+        dburl = credentials('DB_URL')
     }
     stages {
         stage('Git Checkout') {
@@ -49,40 +48,28 @@ pipeline {
                 }
             }
         }
-        stage('Docker Build & Tag') {
-            steps {
-                script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t shaikmustafa/testcamp:latest ."
-                    }
-                }
-            }
-        }
+        stage('image build'){
+            steps{
+                sh "docker build -t thrineshjogu/testcamp:latest ."
+            }
+        }
         stage('Trivy Image Scan') {
             steps {
-                sh "trivy image --format table -o image-report.html shaikmustafa/testcamp:latest"
+                sh "trivy image --format table -o image-report.html thrineshjogu/testcamp:latest"
             }
         }
         stage('Docker Push Image') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push shaikmustafa/testcamp:latest"
+                        sh "docker push thrineshjogu/testcamp:latest"
                     }
                 }
             }
         }
         stage('Docker Deploy To Local') {
             steps {
-                 sh "docker run -d -p 3004:3000 \
-                --name testcamp \
-                -e CLOUDINARY_CLOUD_NAME=$CLOUDINARY_CLOUD_NAME \
-                -e CLOUDINARY_KEY=$CLOUDINARY_KEY \
-                -e CLOUDINARY_SECRET=$CLOUDINARY_SECRET \
-                -e MAPBOX_TOKEN=$MAPBOX_TOKEN \
-                -e DB_URL=$DB_URL \
-                shaikmustafa/testcamp:latest"
-
+                 sh "docker run -d --name cont-1 -p 3333:3000  -e CLOUDINARY_CLOUD_NAME=$cloud_name -e CLOUDINARY_KEY=$cloud_key -e CLOUDINARY_SECRET=$cloud_secret -e MAPBOX_TOKEN=$map_token -e DB_URL=$dburl thrineshjogu/testcamp:latest "
             }
 
         }
@@ -132,25 +119,21 @@ pipeline {
                 }
             }
         }
-        stage('Docker Build & Tag') {
-            steps {
-                script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t shaikmustafa/testcamp:latest ."
-                    }
-                }
-            }
-        }
+        stage('image build'){
+            steps{
+                sh "docker build -t thrineshjogu/testcamp:latest ."
+            }
+        }
         stage('Trivy Image Scan') {
             steps {
-                sh "trivy image --format table -o image-report.html shaikmustafa/testcamp:latest"
+                sh "trivy image --format table -o image-report.html thrineshjogu/testcamp:latest"
             }
         }
         stage('Docker Push Image') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push shaikmustafa/testcamp:latest"
+                        sh "docker push thrineshjogu/testcamp:latest"
                     }
                 }
             }
