@@ -232,17 +232,15 @@ subjects:
 kubectl create -f role-binding.yml -n webapps
 
 vi secret.yml
+
 apiVersion: v1
 kind: Secret
+type: kubernetes.io/service-account-token
 metadata:
-  name: yelp-camp-secrets
-type: Opaque
-data:
-  CLOUDINARY_CLOUD_NAME: ZGV6azNyY2py
-  CLOUDINARY_KEY: Mjg3NDI5MjYzODM1NzI5
-  CLOUDINARY_SECRET: cTNmbzlTZ3IwLVZrdXNSbXZjYTBqalVWeTRj
-  MAPBOX_TOKEN: cGsuZXlKMUlqb2lkR2h5YVc1bGMyZ2lMQ0poSWpvaVkyMXBZamhvYzNwc01XSTFhakp0YjNBeFlUWTFkbUUzYnlKOS5hcGVsbmdMX0tVOTVNak1GVXg1REZB
-  DB_URL: bW9uZ29kYitzcnY6Ly9qb2d1dGhyaW5lc2gxMjNfZGJfdXNlcjpQeXVrOUxwY21nOWJhSkxhQGNsdXN0ZXIwLnU0bDVxZ2wubW9uZ29kYi5uZXQvP2FwcE5hbWU9Q2x1c3RlcjA=
+  name: mysecretname
+  namespace: webapps
+  annotations:
+    kubernetes.io/service-account.name: jenkins
 
 kubectl create -f secret.yml -n webapps
 # to get secret token
