@@ -205,7 +205,7 @@ rules:
       - cronjobs
       - secrets
       - limitranges
-      - poddisruptionbudget 
+      - poddisruptionbudgets 
 
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
