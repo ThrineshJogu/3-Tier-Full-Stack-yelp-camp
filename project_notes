@@ -247,7 +247,7 @@ kubectl create -f secret.yml -n webapps
 echo -n "dezks3rcjr" | base64
 echo ZGV6azNyY2py | base64 --decode
 
-kubectl describe secret mysecret -n webapps
+kubectl describe secret mysecretname -n webapps
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
