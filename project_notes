@@ -245,7 +245,7 @@ metadata:
   name: yelp-camp-secrets
 type: Opaque
 data:
-  CLOUDINARY_CLOUD_NAME: ZGgxZmJqdWlpCg==
+  CLOUDINARY_CLOUD_NAME: ZHpuanRxcG1t 
   CLOUDINARY_KEY: MTY2NDYzNTExNTQyNDYyCg==
   CLOUDINARY_SECRET: SmFzX013blhYUTF2ZFphelFqRWxuV2RqSXZFCg==
   MAPBOX_TOKEN: cGsuZXlKMUlqb2lZVzFwZEhOcGJtZG9jems0SWl3aVlTSTZJbU50T0RKbWFHTXdNREIwZG13eWFtOWtZWEUxTVRBek9Hc2lmUS5MTXc2ZTVIOHZvTFVUc3d0YUduWjlBCg==
@@ -253,6 +253,7 @@ data:
 
 kubectl create -f secret.yml -n webapps
 # to get secret token
+echo -n "token" | base64
 kubectl describe secret mysecret -n webapps
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
