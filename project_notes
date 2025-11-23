@@ -1,15 +1,9 @@
-CLOUDINARY
+CLOUDINARY_CLOUD_NAME= dezk3rcjr
+CLOUDINARY_KEY= 287429263835729
+CLOUDINARY_SECRET= q3fo9Sgr0-VkusRmvca0jjUVy4c
+MAPBOX_TOKEN= pk.eyJ1IjoidGhyaW5lc2giLCJhIjoiY21pYjhoc3psMWI1ajJtb3AxYTY1dmE3byJ9.apelngL_KU95MjMFUx5DFA
+DB_URL= "mongodb+srv://joguthrinesh123_db_user:Pyuk9Lpcmg9baJLa@cluster0.u4l5qgl.mongodb.net/?appName=Cluster0"
 
-Cloud name  :  dznjtqpmm
-API KEY : 123379161313422
-API SECRET :  99ZSJtjBAmXn7cPPdl_JcNhplxI
-API ENV :  CLOUDINARY_URL=cloudinary://123379161313422:99ZSJtjBAmXn7cPPdl_JcNhplxI@dznjtqpmm
-MAPBOX TOKEN :  pk.eyJ1Ijoic2hhaWttdXN0YWZhNzgiLCJhIjoiY21hczMzbWY2MGg5aDJrc2E0dWhjbjByZSJ9.RY23oZdobkP2MME6CyVqCA
-
-MONGODB:
-Username :  awsanddevops29_db_user
-Password :  HjgOVCRHSChlTiEG
-Endpoint : “mongodb+srv://awsanddevops29_db_user:HjgOVCRHSChlTiEG@cluster0.vdsbrwt.mongodb.net/?appName=Cluster0”
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Jenkinsfile: (for Docker container)
