@@ -21,7 +21,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
 
-                git branch: 'main', url: 'https://github.com/devops0014/3-Tier-Full-Stack-yelp-camp.git'
+                git branch: 'main', url: 'https://github.com/ThrineshJogu/3-Tier-Full-Stack-yelp-camp.git'
             }
         }
         stage('SonarQube') {
